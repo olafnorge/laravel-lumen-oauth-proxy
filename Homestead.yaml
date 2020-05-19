@@ -1,0 +1,24 @@
+---
+ip: 192.168.10.12
+memory: 2048
+cpus: 1
+provider: virtualbox
+authorize: ~/.ssh/id_rsa.pub
+keys:
+  - ~/.ssh/id_rsa
+folders:
+  - map: .
+    to: /home/vagrant/code
+sites:
+  - map: oauth-proxy.test
+    to: /home/vagrant/code/public
+ports:
+  - send: 18000
+    to: 80
+databases:
+  - homestead
+name: oauth-proxy
+hostname: oauth-proxy
+variables:
+  - key: COMPOSER_MEMORY_LIMIT
+    value: -1
